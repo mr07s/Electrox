@@ -1,0 +1,21 @@
+.container{
+background-color: black;
+color: white;
+text-align: center;
+height: 10rem;
+}
+.footer_text_container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+.footer_link{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    
+}
+.footer_link:hover{
+    color: rgb(204, 227, 248);
+    border-bottom: 1px solid aliceblue;
+}
