@@ -10,7 +10,7 @@ const { Option } = Select;
 
 const CreateProduct = () => {
  const [categories,setCategories] =useState([]);
- const [category,setCategory] =useState([]);
+ const [category,setCategory] =useState("");
  const [name,setName] =useState("")
  const [description,setDescription] =useState("")
  const [price,setPrice] =useState("")
@@ -45,6 +45,7 @@ try {
    productData.append("price",price);
    productData.append("category",category);
    productData.append("quantity",quantity);
+   productData.append("photo", photo);
    productData.append("shipping",shipping);
    const { data } = await axios.post(
       `${process.env.REACT_APP_API}/api/v1/products/create-product`,productData);
@@ -189,15 +190,20 @@ hidden
    onChange={(e)=>setQuantity(e.target.value)}
    />
 </div>
+<Select
+                  bordered={false}
+                  placeholder="Select Shipping "
+                  size="large"
+                  showSearch
+                  className="form-select mb-3"
+                  onChange={(value) => {
+                    setShipping(value);
+                  }}
+                >
+                  <Option value="0">No</Option>
+                  <Option value="1">Yes</Option>
+                </Select>
 
-<div className="product_shipping products_attribute">
-   <input type="text" 
-   value={shipping}
-   placeholder="Shipping"
-   className='product_name_input'
-   onChange={(e)=>setShipping(e.target.value)}
-   />
-</div>
 
 </div>
 

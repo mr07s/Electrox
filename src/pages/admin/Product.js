@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import AdminMenu from '../../components/Layout/Layout/AdminMenu'
 import Layout from '../../components/Layout/Layout/Layout'
 import MuiCard from '../../components/Layout/MeterialUiComponents/Card';
+import { Link } from 'react-router-dom';
 
 const Product = () => {
 
@@ -61,8 +62,9 @@ const [products ,setProducts] = useState([]);
    <p>All products</p>
     {
       products?.map((p)=>(
-        <MuiCard product_name={p.name} id={p._id}/>
-
+        <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} style={{textDecoration:'none'}}>
+        <MuiCard product_name={p.name}   products_description={p.description} product_id={p._id}/>
+        </Link>
       ))
     }
    
