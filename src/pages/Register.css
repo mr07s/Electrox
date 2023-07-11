@@ -1,0 +1,12 @@
+.register_submit{
+    background-color:white;
+    Width : 5rem;
+    height:2rem;
+    border:1px solid black;
+    border-radius:'2rem';
+    cursor:pointer
+   
+}
+.register_submit:hover{
+    background-color: rgb(230, 230, 230);
+}

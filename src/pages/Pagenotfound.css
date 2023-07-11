@@ -1,0 +1,42 @@
+.pnf_container{
+    border: 1px solid black;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pnf_statuscode{
+    /* margin-left: 3rem; */
+    font-size:  9rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 3px;
+}
+.pnf_statuscodeholder{
+    /* margin-left: 2.3rem; */
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+}
+.go_back_link{
+    text-decoration: none;
+    
+}
+.go_back_botton{
+    height: 2rem;
+    width: 4.2rem;
+    /* justify-content: center; */
+    margin-left: 6rem;
+    display:flex ;
+    /* margin-right: auto; */
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+font-size: 1.1rem;
+border: .2px solid black;
+border-radius: 3px;
+
+}
+.go_back_botton:hover{
+    background-color:rgb(234, 234, 234) ;
+}

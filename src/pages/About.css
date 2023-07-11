@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.about_container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .about_container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+.title{
+font-size: 3rem;
+color: white;
+text-shadow: 0 0 5px black;
+}
+.lower_container{
+    font-size: 1.2rem;
+    padding: 2rem;
+    /* background-color: #333; */
+     background-color: white; 
+}
+
+.about_container{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  perspective: 10px;
+}
+.upper_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style:preserve-3d;
+    z-index: -1;
+}
+.background_img{
+position: absolute;
+height: 100%;
+width: 100%;
+object-fit: cover;
+z-index: -1;
+transform: translateZ(-10px) scale(2);
+}
