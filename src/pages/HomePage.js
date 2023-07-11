@@ -3,14 +3,17 @@ import React,{useState ,useEffect} from 'react'
 import Layout from '../components/Layout/Layout/Layout'
 import MuiCard from '../components/Layout/MeterialUiComponents/Card';
 import {useAuth} from '../context/auth'
-import { Checkbox } from 'antd';
+import { Checkbox ,Radio} from 'antd';
 import { toast } from 'react-hot-toast';
+import { Prices } from '../components/Layout/FilterUtility/Prices';
+import { AirportShuttle } from '@mui/icons-material';
 
 const HomePage = () => {
 
   const [products,setProducts] =useState();
   const [categories,setCategories] =useState();
   const [check,setChecked] =useState([]);
+  const [radio,setRadio] =useState([]);
 // get products
 //Use reducers instead of using getAllProducts many time
 
@@ -65,9 +68,40 @@ setChecked(all);
  }
 
 useEffect(()=>{
-  getAllProducts();
-  getAllCategory();
-},[])
+  if(!check.length || !radio.length){
+
+    getAllProducts();
+    getAllCategory();
+  }
+ 
+},[check.length,radio.length])
+
+useEffect(()=>{
+
+if(check.length||radio.length) filterProduct()
+
+
+},[check,radio])
+const filterProduct = async()=>{
+
+
+try {
+  const {data} = await axios.post(`${process.env.REACT_APP_API}/api/v1/products/product-filters`,{check,radio});
+  setProducts(data?.products)
+
+} catch (error) {
+  
+}
+
+}
+
+
+
+
+
+
+
+
 
 
   return (
@@ -77,6 +111,7 @@ useEffect(()=>{
 
    <div className="side_filter">
     <h6>Filter By Category</h6>
+    <div className="filter_by_category">
     {
       categories?.map(c=>(
 <Checkbox  key={c._id} onChange={(e)=>handleFilter(e.target.checked,c._id)}>
@@ -84,9 +119,36 @@ useEffect(()=>{
 </Checkbox>
       ))
     }
+    <div>
+     {JSON.stringify(check,null,4)}
+     {JSON.stringify(radio,null,4)}
+
+    </div>
+    </div>
+
+
+
+<div className="filter_by_price">
+  <h4>Filter by price</h4>
+<Radio.Group onChange={(e)=>setRadio(e.target.value)}>
+{
+  Prices?.map(p=>(
+    <div key={p._id}>
+      <Radio value={p.array}>{p.name}</Radio>
+
+    </div>
+  ))
+}
+
+
+</Radio.Group>
+</div>
+
+
+
     </div>   
  <div className="all_products">
-  {JSON.stringify(check,null,4)}
+ 
 <h4>All Products</h4>
 <div className="products_items">
 {
