@@ -11,6 +11,8 @@ const AdminMenu = () => {
         Link2={"/dashboard/admin/create-product"}
         name3={"Users"}
         Link3={"/dashboard/admin/users"}
+        name4={"Products"}
+        Link4={"/dashboard/admin/products"}
         />
 
 
