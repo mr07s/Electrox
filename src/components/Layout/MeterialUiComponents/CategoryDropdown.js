@@ -9,6 +9,7 @@ import ArchiveIcon from '@mui/icons-material/Archive';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,6 +54,7 @@ const StyledMenu = styled((props) => (
 
 export default function CategoryDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const navigate =useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -68,10 +70,11 @@ export default function CategoryDropdown(props) {
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        variant="contained"
+        // variant="contained"
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{color:'black',fontFamily:'Dancing Script, cursive',fontWeight:'bold'}}
       >
         {props.name}
       </Button>
@@ -84,8 +87,16 @@ export default function CategoryDropdown(props) {
         open={open}
         onClose={handleClose}
       >
+        <MenuItem
+        onClick={()=>navigate('/categories')}
+        
+        >
+        All Categories
+        </MenuItem>
         {props.categories?.map((c)=>(
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem 
+        onClick={()=>navigate(`/category/${c.slug}`)}
+        disableRipple>
           
          {c.name}
 

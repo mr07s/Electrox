@@ -5,8 +5,11 @@ import { useAuth } from "../../../context/auth";
 import { toast } from "react-hot-toast";
 import DropdownMenu from ".././MeterialUiComponents/DropdownMenu";
 import SearchBar from "../MeterialUiComponents/Searchbar";
+import useCategory from "../hooks/useCategory";
+import CategoryDropdown from "../MeterialUiComponents/CategoryDropdown";
 const Header = () => {
   const [auth, setAuth] = useAuth();
+  const categories =useCategory();
 const handleLogout =()=>{
 setAuth({
   ...auth,
@@ -61,11 +64,17 @@ toast.success('logout successfully')
             </li> */}
           </>
         )}
+                <li className="nav_item">
+          {/* <NavLink to="/NavLinkcategories" className="nav_link"> */}
+          <CategoryDropdown name={'Categories'} categories={categories}/>
+          {/* </NavLink> */}
+        </li>
         <li className="nav_item">
           <NavLink to="/" className="nav_link">
             Cart(0)
           </NavLink>
         </li>
+
       </div>
     </nav>
   );
