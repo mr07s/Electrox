@@ -10,22 +10,38 @@ import { AirportShuttle } from '@mui/icons-material';
 
 const HomePage = () => {
 
-  const [products,setProducts] =useState();
+  const [products,setProducts] =useState([]);
   const [categories,setCategories] =useState();
   const [check,setChecked] =useState([]);
   const [radio,setRadio] =useState([]);
+  const [totalProducts,setTotalProducts] =useState(0);
+  const [page,setPage] =useState(1);
+  const [loading,setLoading] =useState(false);
 // get products
 //Use reducers instead of using getAllProducts many time
+
+
+
+
+
+
+
+
+
 
 const getAllProducts = async()=>{
 
 try {
-  const {data} =await axios.get(`${process.env.REACT_APP_API}/api/v1/products/get-product`)
-  setProducts(data.Allproducts);
+  setLoading(true)
+  const {data} =await axios.get(`${process.env.REACT_APP_API}/api/v1/products/product-list/${page}`)
+  setLoading(false)
+  setProducts(data?.productlist);
  
 
 } 
-catch (error) {
+catch (error) 
+{
+  setLoading(false)
   console.log(error);
 }
 
@@ -67,14 +83,61 @@ setChecked(all);
 
  }
 
+ //get Total Count
+const getTotalCount =async()=>{
+
+  try {
+    const{data} =await axios.get(`${process.env.REACT_APP_API}/api/v1/products/product-count`)
+    setTotalProducts(data?.totalProducts)
+  
+  
+  
+  
+  } catch (error) {
+    console.log(error)
+  }
+  
+  
+  
+  
+  }
+useEffect(()=>{
+if(page===1)
+return;
+loadmore();
+
+},[page])
+
+const loadmore =async()=>{
+ 
+
+try {
+  setLoading(true)
+  const {data} =await axios.get(`${process.env.REACT_APP_API}/api/v1/products/product-list/${page}`)
+  setLoading(false)
+  setProducts([...products,...data?.productlist])
+} catch (error) {
+  console.log(error)
+  setLoading(false)
+}
+
+
+
+}
+
+
+
+
+
 useEffect(()=>{
   if(!check.length || !radio.length){
 
     getAllProducts();
     getAllCategory();
+    getTotalCount();
   }
  
-},[check.length,radio.length])
+},[])
 
 useEffect(()=>{
 
@@ -119,11 +182,11 @@ try {
 </Checkbox>
       ))
     }
-    <div>
+    {/* <div>
      {JSON.stringify(check,null,4)}
      {JSON.stringify(radio,null,4)}
 
-    </div>
+    </div> */}
     </div>
 
 
@@ -144,6 +207,10 @@ try {
 </Radio.Group>
 </div>
 
+<div className="filter_by_price">
+<button className='btn btn_resetfilter' onClick={()=>window.location.reload()}>Reset Filter</button>
+</div>
+
 
 
     </div>   
@@ -154,11 +221,18 @@ try {
 {
       products?.map((p)=>(
         // <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} style={{textDecoration:'none'}}>
-        <MuiCard product_name={p.name}  key={p._id}  products_description={p.description} product_id={p._id}/>
+        <MuiCard product_name={p.name} product_slug={p.slug} key={p._id}  product_price={`$ ${p.price}`}  products_description={p.description} product_id={p._id}/>
         // </Link>
       ))
     }
    
+
+<div className="total_product_count" >{products && products.length < totalProducts &&(
+  <button className='btn load_products' onClick={(e)=>{
+    e.preventDefault();
+    setPage(page+1);
+  }}>{loading ?'Loading ...':"Loadmore"}</button>
+)}</div>
 
 
 </div>

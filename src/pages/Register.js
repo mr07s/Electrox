@@ -116,7 +116,7 @@ Register
         placeholder ='What is your answer'
         required
       />
-      <button className='register_submit' onClick={handleSubmit} >
+      <button className='btn register_submit' onClick={handleSubmit} >
 Submit
       </button>
     </Box>

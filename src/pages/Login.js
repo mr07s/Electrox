@@ -88,10 +88,10 @@ LogIn
         required
 />
     
-      <button className='register_submit' onClick={handleLogIn} >
+      <button className='btn register_submit' onClick={handleLogIn} >
 LogIn
       </button>
-      <button className='register_submit' onClick={()=>{navigate('/forgot_password')}} >
+      <button className=' btn register_submit' onClick={()=>{navigate('/forgot_password')}} >
 Forgot Password
       </button>
     </Box>

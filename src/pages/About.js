@@ -3,10 +3,13 @@ import Layout from '../components/Layout/Layout/Layout'
 import './About.css'
 
 import fourthwatch from '../images/fourthwatchImage'
+import { AppBar } from '@mui/material'
 
 const About = () => {
   return (
-    <Layout title={"About us -Ecommerce app"}>
+    
+
+<Layout title={"About us -Ecommerce app"}>
 
       <div className="about_container">
 <header className='upper_container'>
@@ -74,6 +77,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptates ab exped
       </div>
 {/* <Footer/> */}
     </Layout>
+    
   )
 }
 Layout.defaultProps ={

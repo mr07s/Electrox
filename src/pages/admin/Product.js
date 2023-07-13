@@ -63,7 +63,7 @@ const [products ,setProducts] = useState([]);
     {
       products?.map((p)=>(
         <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} style={{textDecoration:'none'}}>
-        <MuiCard product_name={p.name}   products_description={p.description} product_id={p._id}/>
+        <MuiCard product_name={p.name}   products_description={p.description}  product_price={p.price} product_id={p._id}/>
         </Link>
       ))
     }

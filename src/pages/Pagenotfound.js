@@ -9,7 +9,7 @@ const Pagenotfound = () => {
         <div className="pnf">
       <p className='pnf_statuscode'  >404</p>
       <p  className='pnf_statuscodeholder' >Opps ! Page Not Found</p>
-      <button className='go_back_botton' > 
+      <button className=' btn go_back_botton' > 
       <NavLink to='/' className='go_back_link'>GoBack</NavLink>
       </button>
       </div>

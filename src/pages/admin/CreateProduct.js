@@ -207,7 +207,7 @@ hidden
 
 </div>
 
-<button className="submit_button" onClick={handleCreateProduct}>
+<button className="btn submit_button" onClick={handleCreateProduct}>
 Create Product
 
 

@@ -4,6 +4,7 @@ import "./Header.css";
 import { useAuth } from "../../../context/auth";
 import { toast } from "react-hot-toast";
 import DropdownMenu from ".././MeterialUiComponents/DropdownMenu";
+import SearchBar from "../MeterialUiComponents/Searchbar";
 const Header = () => {
   const [auth, setAuth] = useAuth();
 const handleLogout =()=>{
@@ -27,6 +28,8 @@ toast.success('logout successfully')
       </li>
 
       <div className="nav_container">
+   <SearchBar/>
+
         <li className="nav_item">
           <NavLink to="/" className="nav_link">
             {" "}

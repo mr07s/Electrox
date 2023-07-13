@@ -92,7 +92,7 @@ LogIn
         required
 />
     
-      <button className='register_submit' onClick={handleLogIn} >
+      <button className='btn register_submit' onClick={handleLogIn} >
       Reset Password
       </button>
       {/* <button className='register_submit' onClick={()=>{navigate('/forgot_password')}} >

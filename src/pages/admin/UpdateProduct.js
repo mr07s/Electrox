@@ -275,7 +275,7 @@ catch (error)
  
  </div>
  
- <button className="submit_button" onClick={handleUpdateProduct}>
+ <button className="btn submit_button" onClick={handleUpdateProduct}>
  Update Product
  
  
@@ -283,7 +283,7 @@ catch (error)
    
  
  
- <button className="submit_button" onClick={handleDelete}>
+ <button className="btn submit_button" onClick={handleDelete}>
  Delete  Product
  
  
