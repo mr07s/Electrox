@@ -130,8 +130,8 @@ try {
 
 
 useEffect(()=>{
-  if(!check.length || !radio.length){
-
+  if(!check.length || !radio.length)
+  {
     getAllProducts();
     getAllCategory();
     getTotalCount();
@@ -221,7 +221,7 @@ try {
 {
       products?.map((p)=>(
         // <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} style={{textDecoration:'none'}}>
-        <MuiCard product_name={p.name} product_slug={p.slug} key={p._id}  product_price={`$ ${p.price}`}  products_description={p.description} product_id={p._id}/>
+        <MuiCard product_name={p.name} product_slug={p.slug} key={p._id}  product_price={p.price} products_description={p.description} product_id={p._id}/>
         // </Link>
       ))
     }

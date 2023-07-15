@@ -7,8 +7,12 @@ import DropdownMenu from ".././MeterialUiComponents/DropdownMenu";
 import SearchBar from "../MeterialUiComponents/Searchbar";
 import useCategory from "../hooks/useCategory";
 import CategoryDropdown from "../MeterialUiComponents/CategoryDropdown";
+import { useCart } from "../../../context/cart";
+import { Badge } from 'antd';
+
 const Header = () => {
   const [auth, setAuth] = useAuth();
+  const [cart] =useCart();
   const categories =useCategory();
 const handleLogout =()=>{
 setAuth({
@@ -70,9 +74,12 @@ toast.success('logout successfully')
           {/* </NavLink> */}
         </li>
         <li className="nav_item">
-          <NavLink to="/" className="nav_link">
-            Cart(0)
+
+        <Badge count={cart?.length} showZero>
+          <NavLink to="/cart" className="nav_link">
+            Cart
           </NavLink>
+    </Badge>
         </li>
 
       </div>

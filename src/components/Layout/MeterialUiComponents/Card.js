@@ -6,10 +6,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
-
+import {useCart} from '../../../context/cart'
+import { toast } from 'react-hot-toast';
 export default function MuiCard(props) {
 
 const navigate=useNavigate();
+const [cart,setCart] =useCart();
+console.log(cart)
+
+// const product_name =props.product_name;
+
 
   return (
     
@@ -32,7 +38,24 @@ const navigate=useNavigate();
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Add to cart</Button>
+        <Button size="small" 
+        onClick={()=>{setCart([...cart,
+          props]);
+          localStorage.setItem('cart',JSON.stringify([...cart,
+            props]));
+          toast.success('One Item Added Successfully');
+        }}>
+          
+          
+          
+          
+          
+          Add to cart
+          
+          
+          
+          
+          </Button>
         <Button size="small" onClick={()=>navigate(`/product/${props.product_slug}`)}>Learn More</Button>
       </CardActions>
     </Card>
