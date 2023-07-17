@@ -13,6 +13,8 @@ const AdminMenu = () => {
         Link3={"/dashboard/admin/users"}
         name4={"Products"}
         Link4={"/dashboard/admin/products"}
+        name5={"Orders"}
+        Link5={"/dashboard/admin/orders"}
         />
 
 
