@@ -27,15 +27,20 @@ toast.success('logout successfully')
 
 
   return (
-    <nav>
+    <nav className="main_nav">
+      <div className="nav_container">
+        <div className="navbar_left">
+
       <li className="logo_item">
         <NavLink to="/" className=" nav_link logo_link">
           Logo
         </NavLink>
       </li>
-
-      <div className="nav_container">
-   <SearchBar/>
+        </div>
+<div className="navbar_middle">
+   <SearchBar className='search_bar'/>
+</div>
+<div className="navbar_right">
 
         <li className="nav_item">
           <NavLink to="/" className="nav_link">
@@ -81,6 +86,7 @@ toast.success('logout successfully')
           </NavLink>
     </Badge>
         </li>
+        </div>
 
       </div>
     </nav>

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React,{useState ,useEffect} from 'react'
+import './cssFile/homepage.css'
 import Layout from '../components/Layout/Layout/Layout'
 import MuiCard from '../components/Layout/MeterialUiComponents/Card';
 import {useAuth} from '../context/auth'
 import { Checkbox ,Radio} from 'antd';
 import { toast } from 'react-hot-toast';
 import { Prices } from '../components/Layout/FilterUtility/Prices';
-import { AirportShuttle } from '@mui/icons-material';
+// import { AirportShuttle } from '@mui/icons-material';
 
 const HomePage = () => {
 
@@ -173,11 +174,13 @@ try {
    <div className="homepage_container">
 
    <div className="side_filter">
-    <h6>Filter By Category</h6>
     <div className="filter_by_category">
+    <h6>Category</h6>
     {
       categories?.map(c=>(
-<Checkbox  key={c._id} onChange={(e)=>handleFilter(e.target.checked,c._id)}>
+<Checkbox  key={c._id} onChange={(e)=>handleFilter(e.target.checked,c._id)}
+className="fliter_checkbox"
+>
   {c.name}
 </Checkbox>
       ))
@@ -192,12 +195,12 @@ try {
 
 
 <div className="filter_by_price">
-  <h4>Filter by price</h4>
-<Radio.Group onChange={(e)=>setRadio(e.target.value)}>
+  <h6>price</h6>
+<Radio.Group onChange={(e)=>setRadio(e.target.value)} className="filter_radiogroup">
 {
   Prices?.map(p=>(
     <div key={p._id}>
-      <Radio value={p.array}>{p.name}</Radio>
+      <Radio value={p.array}  className="filter_radiobutton" >{p.name}</Radio>
 
     </div>
   ))
@@ -207,7 +210,7 @@ try {
 </Radio.Group>
 </div>
 
-<div className="filter_by_price">
+<div className="filter_reset">
 <button className='btn btn_resetfilter' onClick={()=>window.location.reload()}>Reset Filter</button>
 </div>
 

@@ -90,26 +90,27 @@ navigate("/search")
 
 
   return (
-    <Box sx={{ flexGrow: 1 ,minWidth:'300px',height:'35px',display:'flex',flexDirection:'row'}}>
+    <Box sx={{ flexGrow: 1 ,minWidth:'300px',height:'35px',display:'flex',flexDirection:'row',marginLeft:'1.2rem',marginRight:'1.2rem'}}>
       {/* <AppBar position="static"> */}
         {/* <Toolbar> */}
           <Search
-          sx={{border:'1px solid black',marginRight:'1.2rem'}}
+          sx={{border:'1px solid black',marginRight:'1.2rem',minWidth:'90%',marginLeft:'0rem'}}
           >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search products"
               inputProps={{ 'aria-label': 'search' }}
               value={values.keyword}
               onChange={(e)=>setValues({...values, keyword:e.target.value})}
+          // sx={{border:'1px solid red',marginRight:'1.2rem',width:'60%'}}
             
         />
        
           </Search>
           <Button onClick={handleSubmit}
-       
+      
         >Search</Button>
         {/* </Toolbar> */}
       {/* </AppBar> */}
