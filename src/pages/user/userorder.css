@@ -1,0 +1,14 @@
+.order_table_container{
+    display: flex;
+ 
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+}
+@media screen and (max-width:850px){
+    .order_table_container{
+      
+        padding-top: 7rem;
+    }
+}

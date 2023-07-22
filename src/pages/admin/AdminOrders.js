@@ -63,7 +63,7 @@ catch (error) {
         <h1>AllOrders</h1>
         <div
           className="order_table_container "
-          style={{ border: "1px solid red", width: "100vw" }}
+          style={{  width: "100vw" ,display:'flex',justifyContent:'center'}}
         >
           <OrderTable order={orders} status={status} changeStatus={changeStatus} setChangeStatus={setChangeStatus} handleChangeStatus={handleChangeStatus}/>
         </div>

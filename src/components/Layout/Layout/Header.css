@@ -29,6 +29,7 @@ width: 100vw;
     /* height: 3rem; */
     justify-content: center;
     align-items: center;
+    margin-right: auto;
 }
 
 .navbar_right{
@@ -108,5 +109,24 @@ background-color: white;
 }
 .search_bar{
     border: 1px solid red;
+}
+}
+
+
+@media screen and (max-width:350px)
+{
+    .nav_link{
+        font-size: .7rem !important;
+    }
+    .nav_item{
+        font-size: .7rem !important;
+    }
+ .navbar_right{
+    /* padding-right: 3rem;
+    padding-left: 3rem; */
+ }  
+.category_dropdown{
+ 
+
 }
 }

@@ -13,7 +13,7 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@mui/base';
-
+import './Searchbar.css'
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -90,16 +90,18 @@ navigate("/search")
 
 
   return (
-    <Box sx={{ flexGrow: 1 ,minWidth:'300px',height:'35px',display:'flex',flexDirection:'row',marginLeft:'1.2rem',marginRight:'1.2rem'}}>
+    <Box id='searchbar_box' sx={{ flexGrow: 1 ,minWidth:'300px',height:'35px',display:'flex',flexDirection:'row',marginLeft:'1.2rem',marginRight:'3.2rem'}}>
       {/* <AppBar position="static"> */}
         {/* <Toolbar> */}
           <Search
+          
           sx={{border:'1px solid black',marginRight:'1.2rem',minWidth:'90%',marginLeft:'0rem'}}
           >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+            id='search_input_text'
               placeholder="Search products"
               inputProps={{ 'aria-label': 'search' }}
               value={values.keyword}
@@ -110,7 +112,7 @@ navigate("/search")
        
           </Search>
           <Button onClick={handleSubmit}
-      
+        id='search_button'
         >Search</Button>
         {/* </Toolbar> */}
       {/* </AppBar> */}

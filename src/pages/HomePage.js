@@ -8,7 +8,8 @@ import { Checkbox ,Radio} from 'antd';
 import { toast } from 'react-hot-toast';
 import { Prices } from '../components/Layout/FilterUtility/Prices';
 // import { AirportShuttle } from '@mui/icons-material';
-
+import CancelIcon from '@mui/icons-material/Cancel';
+import CloseIcon from '@mui/icons-material/Close';
 const HomePage = () => {
 
   const [products,setProducts] =useState([]);
@@ -20,7 +21,7 @@ const HomePage = () => {
   const [loading,setLoading] =useState(false);
 // get products
 //Use reducers instead of using getAllProducts many time
-
+ const [sidebar,setSidebar] =useState(0);
 
 
 
@@ -172,8 +173,21 @@ try {
     <Layout title={"All Products - Best Offers"} >
    
    <div className="homepage_container">
+    {
+      sidebar ===0 ?(
+<div className="filter_btn_container">
 
+<button onClick={()=>setSidebar(1)} className='filter_btn'>Filters</button>
+</div>
+      ):(<div className="filter_close_btn_container">
+
+      <button onClick={()=>setSidebar(0)} className='filter_close_btn'><CloseIcon/></button>
+      </div>)
+}
+{ 
+ sidebar?(
    <div className="side_filter">
+
     <div className="filter_by_category">
     <h6>Category</h6>
     {
@@ -208,18 +222,28 @@ className="fliter_checkbox"
 
 
 </Radio.Group>
-</div>
-
 <div className="filter_reset">
 <button className='btn btn_resetfilter' onClick={()=>window.location.reload()}>Reset Filter</button>
 </div>
 
 
+</div>
+
+
 
     </div>   
+
+
+
+
+):(<></>)}
+
+
+
+
  <div className="all_products">
  
-<h4>All Products</h4>
+{/* <h4>All Products</h4> */}
 <div className="products_items">
 {
       products?.map((p)=>(
@@ -229,16 +253,17 @@ className="fliter_checkbox"
       ))
     }
    
+   </div>
 
 <div className="total_product_count" >{products && products.length < totalProducts &&(
   <button className='btn load_products' onClick={(e)=>{
     e.preventDefault();
     setPage(page+1);
-  }}>{loading ?'Loading ...':"Loadmore"}</button>
+  }}>{loading ?'Loading ...':"Loadmore"}
+  </button>
 )}</div>
 
 
-</div>
  </div>
 
    </div>

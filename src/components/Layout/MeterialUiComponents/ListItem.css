@@ -1,4 +1,6 @@
 .Admin_link{
-    color :black;
+    color :rgb(0, 0, 0);
     text-decoration: none;
+    display: flex;
+padding-left: 0;
 }

@@ -1,62 +1,3 @@
-/* .homepage_container{
-    display: flex;
-    
-}
-
-
-.side_filter{
-
-width: 20vw;
-position: fixed;
-z-index: 100;
-height: 70vh;
-
-
-}
-.filter_by_category{
-    display: flex;
-    border: 1px solid red;
-    flex-direction: column;
-    height: 50%;
-    justify-content:space-around;
-    font-size: 2rem;
-}
-.all_products{
-    width: 80vw;
-    border: 1px solid green;
-    position: relative;
-    margin-left: 20vw;
-  
-}
-.products_items{
-    border: 2px solid black;
-    width: 80vw;
-    display: flex;
-    flex-wrap: wrap;
-}
-.filter_by_price{
-    height: 70vh;
-    font-size: 2rem;
-    font-family: 'Dancing Script', cursive;
-
-
-}
-.fliter_checkbox{
-
-font-weight: 300px ;
-font-size: 1.2rem;
-font-family: 'Dancing Script', cursive;
-
-
-}
-.filter_radiobutton{
-    font-weight: 300px ;
-    font-size: 1.2rem;
-    font-family: 'Dancing Script', cursive;
-margin-bottom: 1.5rem;    
-
-
-} */
 
 .homepage_container{
     display: flex;
@@ -65,14 +6,18 @@ margin-bottom: 1.5rem;
 .side_filter
 {
 margin-top: 3rem;
-    width: 15vw;
+    width: 25vw;
     position: fixed;
     z-index: 100;
     height: 100vh;
     /* position: sticky; */
     background-color: rgb(0, 0, 0);
     color: white;
-    overflow-y: auto;
+    /* color: rgb(7, 7, 7); */
+    overflow-y: scroll;
+    /* backdrop-filter: blur(20px); */
+/* border: 1px solid black; */
+/* background-color: rgb(239, 239, 239); */
     }
     .filter_by_category{
         display: flex;
@@ -81,6 +26,7 @@ margin-top: 3rem;
         height: 40%;
         /* justify-content:space-around; */
         font-size: 2rem;
+        margin-bottom: 5rem;
     }
     .filter_by_category>h6{
    margin-bottom: 2rem;
@@ -91,17 +37,22 @@ margin-top: 3rem;
         font-size: 1.2rem;
         font-family: 'Dancing Script', cursive;
         color:white;
+        /* color: black; */
         margin-bottom: 2rem;
         
         }
 
         .filter_by_price{
-            /* height: 70vh; */
+            display: flex;
+            flex-direction: column;
+            margin-top: 7rem;
+            height: 80%;
             font-size: 2rem;
             font-family: 'Dancing Script', cursive;
             /* margin-bottom: 1.5rem;  */
             /* height: 50%; */
         color: white;
+        /* color: black; */
         }
         .filter_by_price>h6{
    margin-bottom: 2rem;
@@ -113,6 +64,7 @@ margin-top: 3rem;
             font-family: 'Dancing Script', cursive;
         margin-bottom: 1.5rem;    
         color: white;
+        /* color: black; */
         
         }
 
@@ -127,6 +79,7 @@ margin-top: 3rem;
         border: 1px solid green;
         position: relative;
         /* margin-left: 20vw; */
+        margin-top: 3rem;
       
     }
     .products_items{
@@ -138,20 +91,196 @@ margin-top: 3rem;
 
     }
 
-.btn{
-    width: 100%;
-    color: black;
+
+.filter_btn_container{
+    border: 1px solid white;
+    height: 2rem;
+    display: flex;
+    margin-top: 4rem;
+    position: fixed;
+    margin-left: 1rem;
+    /* justify-content: center; */
+    z-index: 500;
+
+}
+.filter_btn{
+    height: 2rem;
+    /* margin-top: 4rem; */
+    /* margin-left: 1.2rem; */
     display: flex;
     justify-content: center;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    font-weight: bold;
-    font-size: 1.2rem;
+    align-items: center;
+    width: 5rem;
+    /* background-color: black; */
+    background-color: white;
+    color: black;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 2px;
+    z-index: 600;
+    font-weight: bold;
+}
+.filter_btn:hover{
+
+background-color: rgb(199, 199, 199);
+color: rgb(8, 8, 8);
+cursor: pointer;
+
+}
+
+.filter_close_btn_container{
+    /* border: 1px solid white; */
+    height: 3rem;
+    display: flex;
+    margin-top: 3rem;
+    position: fixed;
+    margin-left: 21vw;
+    justify-content: center;
+    z-index: 500;
+    /* border-radius: 50%; */
+
 }
 
 
 
+.filter_close_btn{
+    height: 2.5rem;
+    /* margin-top: 4rem; */
+    /* margin-left: 1.2rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    /* background-color: black; */
+    background-color: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    z-index: 600;
+    font-weight: bold;
+    border-radius: 50%;
 
+}
+.filter_close_btn:hover{
+
+    background-color: rgb(199, 199, 199);
+    color: rgb(8, 8, 8);
+    cursor: pointer;
     
+    }
+    .load_products{
+
+
+        /* margin-top: 200px; */
+        display: flex;
+        width: 150px;
+        margin-bottom: 2rem;
+        margin-left: 8rem;
+        height: 2rem;
+        border-radius: 7px;
+        align-items: center;
+        background-color: yellow;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 3px;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .load_products:hover{
+background-color: rgb(210, 210, 12);
+    }
+
+
+.filter_reset{
+    width: 100%;
+
+}
+.btn_resetfilter{
+    width: 100%;
+    color: black;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+}
+   
+/* 
+  @media only screen and ((max-width:850px)){
+        .all_products{
+            margin-top: 6rem;
+        }
+.filter_btn_container{
+margin-top: 7rem;
+}
+.side_filter{
+    margin-top: 6rem;
+    width: 30vw;
+}
+.filter_close_btn_container{
+    margin-top: 6.1rem;
+    margin-left: 25vw;
+}
+.filter_by_category{
+    margin-bottom: 3rem;
+}
+    } */
+
+
+    @media only screen and ((max-width:450px)){
+        .all_products{
+            margin-top: 6rem;
+        }
+.filter_btn_container{
+margin-top: 7rem;
+}
+.side_filter{
+    margin-top: 6rem;
+    width: 65vw;
+}
+.filter_close_btn_container{
+    margin-top: 6.1rem;
+    margin-left: 55vw;
+}
+.filter_by_category{
+    margin-bottom: 3rem;
+}
+    }
+
+    @media only screen and ((max-width:750px) and (min-width:450px)){
+        .all_products{
+            margin-top: 6rem;
+        }
+.filter_btn_container{
+margin-top: 7rem;
+}
+.side_filter{
+    margin-top: 6rem;
+    width: 45vw;
+}
+.filter_close_btn_container{
+    margin-top: 6.1rem;
+    margin-left: 39vw;
+}
+.filter_by_category{
+    margin-bottom: 3rem;
+}
+    }
+
+
+    @media only screen and ((max-width:850px) and (min-width:751px)){
+        .all_products{
+            margin-top: 6rem;
+        }
+.filter_btn_container{
+margin-top: 7rem;
+}
+.side_filter{
+    margin-top: 6rem;
+    width: 25vw;
+}
+.filter_close_btn_container{
+    margin-top: 6.1rem;
+    margin-left: 21vw;
+}
+.filter_by_category{
+    margin-bottom: 3rem;
+}
+    }

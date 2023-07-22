@@ -1,0 +1,15 @@
+.CategoryProduct_container{
+/* background-color: black; */
+display: flex;
+flex-direction: column;
+/* border: 1px solid black; */
+padding-top: 3rem;
+}
+.card_container{
+    /* border: 1px solid black; */
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    flex-wrap: wrap;
+
+}

@@ -5,6 +5,7 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
+import './cssFile/cart.css'
 import { toast } from "react-hot-toast";
 const CartPage = () => {
   const [cart, setCart] = useCart();
@@ -84,18 +85,19 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="containers">
-        <div className="heading">
+
+        <div className="cart_heading">
           <h1>{`Hello ${auth?.token && auth?.user?.name}`}</h1>
           <h4>
             {cart?.length >= 1
-              ? `You have${cart.length} items in your cart ${
+              ? `You have ${cart.length} items in your cart ${
                   auth?.token ? "" : "Please Login to check out"
                 }`
               : "Your Cart Is Empty"}
           </h4>
         </div>
-        <div className="cart_tem">
+        <div className="containers">
+        <div className="cart_item">
           {cart?.map((p) => (
             <div className="items">
               <div className="image">
@@ -110,7 +112,7 @@ const CartPage = () => {
                 <p>{p.product_description}</p>
                 <p>{p.product_price}</p>
                 <button
-                  className="btn btn_remove"
+                  className="btn btn_remove btn_cart"
                   onClick={() => removeCartItem(p.product_id)}
                 >
                   Remove
@@ -120,16 +122,16 @@ const CartPage = () => {
           ))}
         </div>
         <div className="check_out">
-          <h4>Cart Summary</h4>
-          <p>Total checkout payment</p>
+          <h4 className="cart_summary cart_text" >Cart Summary</h4>
+          <p >Total checkout payment</p>
           <hr />
-          <h3>Total:{totalPrice()}</h3>
+          <h3 className="cart_total cart_text">Total:{totalPrice()}</h3>
           {auth?.user?.address ? (
             <>
-              <h4>CurrentAdress</h4>
-              <h5>{auth?.user?.address}</h5>
+              <h4 className="cart_text cart_address">CurrentAdress:</h4>
+              <h5 className="cart_text cart_addres_text">{auth?.user?.address}</h5>
               <button
-                className="btn btn_updateadress"
+                className="btn btn_updateadress btn_cart"
                 onClick={() => navigate("/dashboard/user/profile")}
               >
                 Update Adress
@@ -138,7 +140,9 @@ const CartPage = () => {
           ) : (
             <div>
               {auth?.token ? (
-                <button onClick={() => navigate("/dashboard/user/profile")}>
+                <button onClick={() => navigate("/dashboard/user/profile")}
+                className="btn_cart"
+                >
                   UpdateAddress
                 </button>
               ) : (
@@ -148,6 +152,8 @@ const CartPage = () => {
                       state: "/cart",
                     })
                   }
+                className="btn_cart"
+
                 >
                   Please login to checkout
                 </button>
@@ -170,7 +176,7 @@ const CartPage = () => {
                 />
 
                 <button
-                  className="btn btn_makePayment"
+                  className="btn btn_makePayment btn_cart"
                   onClick={handlePayment}
                   disabled={loading || !instance || !auth?.user?.address}
                 >

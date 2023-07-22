@@ -1,0 +1,15 @@
+@media  screen and (max-width:350px){
+
+#searchbar_box{
+
+    padding-left: 2rem;
+    padding-right: 3.2rem;
+}
+#search_input_text{
+font-size: .7rem;
+}
+#search_button{
+    font-weight: .7rem !important;
+}
+
+}

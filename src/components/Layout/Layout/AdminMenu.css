@@ -1,0 +1,47 @@
+.adminMenu_container{
+    border: 1px solid black;
+    margin-top: 3rem;
+    width: 12vw;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 3rem;
+    background-color: white;
+    z-index: 500;
+}
+.admin_btn_container{
+    margin-top: 5rem;
+    position: fixed;
+    z-index: 600;
+    margin-left: 4rem;
+}
+.admin_btn_close_container{
+    display: flex;
+    margin-left: 9.7vw;
+    border: 1px solid black;
+    margin-top: 3rem;
+    position: fixed;
+    z-index: 600;
+}
+@media screen and (max-width:850px)
+{
+.adminMenu_container{
+    width: 35vw;
+}
+.admin_btn_close_container{
+    display: flex;
+    margin-left: 27vw;
+    border: 1px solid black;
+    margin-top: 6rem;
+    position: fixed;
+    z-index: 600;
+}
+.admin_btn_container{
+    margin-top: 7rem;
+    margin-left: 1rem;
+}
+}
+

@@ -57,7 +57,7 @@ export default function OrderTable(props) {
               <TableCell>Quantity</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody >
             {props.order?.map((o, i) => (
               <>
                 <TableRow
@@ -97,8 +97,8 @@ export default function OrderTable(props) {
                   {/* 
                 buyer={o?.buyer?.name} date={moment(o?.createAt).fromNow()} payment={o?.payment?.success ? "Success" :"Failed"} products={o?.products?.length} */}
                 </TableRow>
-
-                <div>
+            
+                <div >
                   {o?.products?.map((p) => (
                     <div className="items">
                       <div className="image">
@@ -115,7 +115,9 @@ export default function OrderTable(props) {
                       </div>
                     </div>
                   ))}
+                  
                 </div>
+                
               </>
             ))}
           </TableBody>

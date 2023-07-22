@@ -1,3 +1,4 @@
+import './updateProduct.css'
 
 import axios from 'axios';
 import React ,{useState,useEffect} from 'react'
@@ -9,7 +10,6 @@ import { useNavigate ,useParams } from 'react-router-dom';
 import { Select } from 'antd';
 import Api from '../../api';
 const { Option } = Select;
-
 
 
 const UpdateProduct = () => {
@@ -165,6 +165,7 @@ catch (error)
                    setCategory(value);
                  }}
                  value={category}
+                 style={{cursor:'pointer'}}
                >
                  {categories?.map((c) => (
                    <Option key={c._id} value={c._id}>
@@ -183,7 +184,7 @@ catch (error)
  className='btn'
  style={{cursor:'pointer'}}
  >
-    <p>
+    <p style={{border:'1px solid black',borderRadius:'20px',display:'flex',justifyContent:'center'}}>
  
     {photo ? photo.name : "Upload Photo"} 
     </p>
@@ -275,7 +276,7 @@ catch (error)
  
  </div>
  
- <button className="btn submit_button" onClick={handleUpdateProduct}>
+ <button className="btn submit_button btn_cart" onClick={handleUpdateProduct}>
  Update Product
  
  
@@ -283,7 +284,7 @@ catch (error)
    
  
  
- <button className="btn submit_button" onClick={handleDelete}>
+ <button className="btn delete_button btn_cart" onClick={handleDelete} >
  Delete  Product
  
  

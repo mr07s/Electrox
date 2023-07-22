@@ -73,9 +73,9 @@ toast.success('logout successfully')
             </li> */}
           </>
         )}
-                <li className="nav_item">
+                <li className="nav_item category_dropdown">
           {/* <NavLink to="/NavLinkcategories" className="nav_link"> */}
-          <CategoryDropdown name={'Categories'} categories={categories}/>
+          <CategoryDropdown name={'Categories'} categories={categories} />
           {/* </NavLink> */}
         </li>
         <li className="nav_item">

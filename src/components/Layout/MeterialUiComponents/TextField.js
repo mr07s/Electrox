@@ -14,7 +14,7 @@ export default function TextFields(props) {
       autoComplete="off"
     >
       <TextField id="outlined-basic" label={props.label} variant="outlined" value={props.value} onChange={(e)=>props.setValue(e.target.value)} placeholder={props.placeholder}/>
-   <Button className='textfield.btn' onClick={props.handlesubmit}> Submit</Button>
+   <Button className='textfield.btn btn_cart btn_updateadress' onClick={props.handlesubmit}> Submit</Button>
     </Box>
   );
 }

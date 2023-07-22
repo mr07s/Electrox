@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import useCategory from '../components/Layout/hooks/useCategory'
 import Layout from '../components/Layout/Layout/Layout'
+import './cssFile/categories.css'
+
 const Categories = () => {
 const categories =useCategory();
 
@@ -14,8 +16,11 @@ categories?.map(c=>(
     <div className="category_items" key={c._id}>
 
 
-    <Link to={`/category/${c.slug}`}>
+    <Link to={`/category/${c.slug}`}  className="Link">
+        <p className='Link_text'>
     {c.name}
+
+        </p>
 </Link>
 
 

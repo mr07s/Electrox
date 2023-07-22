@@ -6,6 +6,8 @@ import { useAuth } from "../../context/auth";
 import Layout from "../../components/Layout/Layout/Layout";
 import UserMenu from "../../components/Layout/Layout/UserMenu";
 import moment from "moment";
+import './userorder.css'
+
 import OrderTable from "../../components/Layout/MeterialUiComponents/OrderTable";
 const Oders = () => {
   const [orders, setOrders] = useState();
@@ -34,16 +36,14 @@ const Oders = () => {
 
   return (
     <Layout title={"All Oders"}>
-      <div className="full_container">
-        <div className="left_sidebarContainer">
+     
+        <div className="usermenu_container">
           <UserMenu />
         </div>
-        <div className="right_sidebarContainer">
-          <div className="card_container">
-            <h3>All Orders</h3>
-            <div className="order_details">
+       
+            <div className="allorders">
               <div
-                className="order_table_container "
+                className="order_table_container"
                 style={{ border: "1px solid red", width: "100vw" }}
               >
                 <OrderTable order={orders} />
@@ -51,9 +51,9 @@ const Oders = () => {
          
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+         
+        
+     
     </Layout>
   );
 };

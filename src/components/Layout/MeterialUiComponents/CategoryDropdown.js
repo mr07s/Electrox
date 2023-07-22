@@ -10,7 +10,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Navigate, useNavigate } from 'react-router-dom';
-
+import './CategoryDropdown.css'
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}

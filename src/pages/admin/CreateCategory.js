@@ -6,7 +6,7 @@ import axios from "axios";
 import MuiTable from "../../components/Layout/MeterialUiComponents/Table";
 import TextFields from "../../components/Layout/MeterialUiComponents/TextField";
 import Modal from "../../components/Layout/MeterialUiComponents/Modal";
-
+import './CreateCategory.css'
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
@@ -49,7 +49,6 @@ const CreateCategory = () => {
       // toast.error("somthing went wrong in input form");
     }
   };
-
 
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();

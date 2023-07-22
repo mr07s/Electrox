@@ -61,7 +61,7 @@ export default function MuiTable(props) {
                 <TableCell>
                   {" "}
                   <button
-                    className="table_btn"
+                    className="table_btn table_btn_update"
                     onClick={() => {
                       props.setSelected(c);
                     }}
@@ -84,7 +84,7 @@ export default function MuiTable(props) {
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <button className="table_btn" onClick={()=>{props.handledelete(c._id)}}>Delete</button>
+                  <button className="table_btn btn_cart" onClick={()=>{props.handledelete(c._id)}}>Delete</button>
                 </TableCell>
               </TableRow>
             ))}

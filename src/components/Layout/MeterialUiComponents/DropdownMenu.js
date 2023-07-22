@@ -6,7 +6,7 @@ import { useAuth } from '../../../context/auth';
 import { Link, NavLink } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import { Avatar } from '@mui/material';
-
+import './DropdownMenu.css'
 export default function DropdownMenu({handleLogout}) {
     const [auth, setAuth] = useAuth();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,7 +28,7 @@ export default function DropdownMenu({handleLogout}) {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 ,backgroundColor:'white',color:'black',border:'2px solid black' }}>{auth?.user?.name?.charAt(0)}</Avatar>
+            <Avatar  id='drop_down_avatar' sx={{ width: 32, height: 32 ,backgroundColor:'white',color:'black',border:'2px solid black' }}>{auth?.user?.name?.charAt(0)}</Avatar>
           </IconButton>
       <Menu
         id="demo-positioned-menu"

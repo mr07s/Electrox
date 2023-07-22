@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart";
 import { toast } from "react-hot-toast";
-
+import './Card.css'
 
 
 
@@ -28,16 +28,19 @@ export default function MuiCard(props) {
 
   return (
     <Card
+    id='main_card'
     sx={{
-      maxWidth: 345,
+      maxWidth: 355,
       // border: "1px solid black",
       display: "flex",
       flexDirection: "column",
       margin:'1.2rem',
-      minWidth:'25vw',
+      minWidth:300,
       marginRight:'2rem',
-      height:'50vh',
-      "boxShadow": 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+      height:'55vh',
+      maxHeight:'70vh',
+      boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
+      borderRadius:'15px',
       ':hover': {
         boxShadow: 20, // theme.shadows[20]
       },
@@ -49,21 +52,22 @@ export default function MuiCard(props) {
         height="140"
         image={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${props.product_id}`}
         sx={{
-          height:'60%'
+          minHeight:'50%',
+          maxHeight:'50%',
         }}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" component="div">
           {props.product_name}
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
-          {props.product_price}
+          {` $ ${props.product_price} `}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {props.products_description.substring(0, 60)}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions    sx={{marginBottom:'1.2rem'}}>
         <Button
           size="small"
           onClick={() => {

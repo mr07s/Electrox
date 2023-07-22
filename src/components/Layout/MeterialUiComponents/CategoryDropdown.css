@@ -1,0 +1,7 @@
+@media screen and (max-width:350px)
+{
+    #demo-customized-button{
+        
+        font-size: .6rem;
+    }
+}
