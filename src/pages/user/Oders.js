@@ -6,7 +6,7 @@ import { useAuth } from "../../context/auth";
 import Layout from "../../components/Layout/Layout/Layout";
 import UserMenu from "../../components/Layout/Layout/UserMenu";
 import moment from "moment";
-import './userorder.css'
+import "./userorder.css";
 
 import OrderTable from "../../components/Layout/MeterialUiComponents/OrderTable";
 const Oders = () => {
@@ -36,24 +36,15 @@ const Oders = () => {
 
   return (
     <Layout title={"All Oders"}>
-     
-        <div className="usermenu_container">
-          <UserMenu />
+      <div className="usermenu_container">
+        <UserMenu />
+      </div>
+
+      <div className="allorders">
+        <div className="order_table_container" style={{ width: "100vw" }}>
+          <OrderTable order={orders} />
         </div>
-       
-            <div className="allorders">
-              <div
-                className="order_table_container"
-                style={{ border: "1px solid red", width: "100vw" }}
-              >
-                <OrderTable order={orders} />
-              
-         
-              </div>
-            </div>
-         
-        
-     
+      </div>
     </Layout>
   );
 };
