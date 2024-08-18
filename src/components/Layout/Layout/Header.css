@@ -1,132 +1,114 @@
-.main_nav{
-    display: flex;
-    /* border: 1px solid red; */
-    height: 3rem;
-   /* background-color: whitesmoke; */
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+.main_nav {
+  display: flex;
+  /* border: 1px solid red; */
+  height: 3rem;
+  /* background-color: whitesmoke; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
-
-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-position: fixed;
-z-index: 700;
-background-color: white;
-width: 100vw;
-
-
-
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  position: fixed;
+  z-index: 700;
+  background-color: white;
+  width: 100vw;
 }
-.nav_container
-{
-    display: flex;
+.nav_container {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid black; */
+  justify-content: flex-end;
+  align-items: center;
+}
+.navbar_left {
+  /* border: 1px solid red; */
+  /* height: 3rem; */
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+}
+
+.navbar_right {
+  display: flex;
+  width: 60%;
+  /* border: 1px solid black; */
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.nav_item {
+  list-style: none;
+  cursor: pointer;
+  /* color: chocolate; */
+}
+.nav_link {
+  text-decoration: none;
+  color: black;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  margin: 2rem;
+}
+.nav_link:hover {
+  color: brown;
+}
+.logo_item {
+  list-style: none;
+  height: 3rem;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+}
+.logo_link {
+  text-decoration: none;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 3px;
+}
+
+@media screen and (max-width: 850px) {
+  .main_nav {
+    height: 6rem;
+    background-color: white;
+  }
+  .navbar_left {
+    display: none;
+  }
+  .navbar_right {
     width: 100%;
-    /* border: 1px solid black; */
-    justify-content: flex-end;
-    align-items: center;
-
-}
-.navbar_left{
-    /* border: 1px solid red; */
-    /* height: 3rem; */
-    justify-content: center;
-    align-items: center;
-    margin-right: auto;
-}
-
-.navbar_right{
+    margin-right: 0.2rem;
+    position: absolute;
+    top: 0;
     display: flex;
-    width: 60%;
-    /* border: 1px solid black; */
-    justify-content: flex-end;
-    align-items: center;
-margin-right: 3rem;
-}
+    justify-content: space-around;
+  }
 
-
-
-.nav_item
-{
-    
-   list-style: none;
-cursor: pointer;
-/* color: chocolate; */
-
-}
-.nav_link{
-    text-decoration: none;
-    color: black;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
-    margin: 2rem;
-}
-.nav_link:hover{
-    color: brown;
-}
-.logo_item{
-
-    list-style: none;
-    height: 3rem;
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-}
-.logo_link{
-    text-decoration: none;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 3px;
-}
-
-
-
-@media screen and (max-width:850px){
-
-    .main_nav{
-height: 6rem;
-background-color: white;
-    }
-    .navbar_left{
-      display: none;
-    }
-     .navbar_right{
-         width: 100%;
-         margin-right: .2rem;
-       position: absolute;
-       top: 0;
-     display: flex;
-     justify-content: space-around;
-    }
-
-.nav_link{
+  .nav_link {
     margin: 1rem;
-}
-.navbar_middle{
+  }
+  .navbar_middle {
     margin-top: 2rem;
     width: 100vw;
     display: flex;
     justify-content: center;
     /* border: 1px solid black; */
-
-}
-.search_bar{
+  }
+  .search_bar {
     border: 1px solid red;
-}
+  }
 }
 
-
-@media screen and (max-width:350px)
-{
-    .nav_link{
-        font-size: .7rem !important;
-    }
-    .nav_item{
-        font-size: .7rem !important;
-    }
- .navbar_right{
+@media screen and (max-width: 350px) {
+  .nav_link {
+    font-size: 0.7rem !important;
+  }
+  .nav_item {
+    font-size: 0.7rem !important;
+  }
+  .navbar_right {
     /* padding-right: 3rem;
     padding-left: 3rem; */
- }  
-.category_dropdown{
- 
-
-}
+  }
+  .category_dropdown {
+  }
 }
