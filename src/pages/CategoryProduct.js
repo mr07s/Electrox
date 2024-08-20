@@ -36,9 +36,12 @@ const CategoryProduct = () => {
         style={{ hieght: "100vh", paddingTop: "4rem" }}
       >
         {/* <h1>{JSON.stringify(products,null,4)}</h1> */}
-        <h1>All products</h1>
+        <h1 style={{ fontSize: "1.2rem" }}>All products</h1>
 
-        <div className="card_container" style={{ height: "100%" }}>
+        <div
+          className="card_container"
+          style={{ height: "100%", display: "flex", flexDirection: "row" }}
+        >
           {products?.map((p) => (
             <div key={p._id}>
               <MuiCard
@@ -53,7 +56,17 @@ const CategoryProduct = () => {
                 key={p._id}
                 style={{ textDecoration: "none" }}
               >
-                <button>{auth[0]?.user?.role ? "Update Product" : ""}</button>
+                <button
+                  style={{
+                    // background: "green",
+                    display: "flex",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    marginBottom: ".9rem",
+                  }}
+                >
+                  {auth[0]?.user?.role ? "Update Product" : ""}
+                </button>
               </Link>
             </div>
           ))}
