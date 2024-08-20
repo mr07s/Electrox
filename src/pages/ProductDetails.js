@@ -81,22 +81,32 @@ const ProductDetails = () => {
           <img
             src={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${product?._id}`}
             alt={`${product.name}`}
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: "100%", width: "100%", borderRadius: "12px" }}
           />
         </div>
         <div
           className="details_container"
           style={{
-            minHeight: "25rem",
-            // background: "red",
+            minHeight: "20rem",
+            // background: "#e3e5e8",
+            borderRadius: "7px",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-between",
             alignItems: "flex-start",
             minWidth: "30%",
           }}
         >
-          {/* <h1>Product Details</h1> */}
+          <h1
+            style={{
+              marginBottom: "1.2rem",
+              fontWeight: "semi-bold",
+              fontSize: "1.5rem",
+              marginLeft: "2rem",
+            }}
+          >
+            Product Details
+          </h1>
           <h3 style={{ marginBottom: "1.2rem" }}>{product?.name}</h3>
           <h3 style={{ marginBottom: "1.2rem" }}>{product?.description}</h3>
           <h3 style={{ marginBottom: "1.2rem" }}>{`$${product?.price}`}</h3>
