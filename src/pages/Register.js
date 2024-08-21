@@ -7,6 +7,7 @@ import "./Register.css";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../components/Layout/Loader/Loader";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [answer, setAnswer] = useState("");
-
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -22,6 +23,7 @@ const Register = () => {
     // toast.success('Registered Successfully')
 
     try {
+      setLoading(true);
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
         { name, email, password, phone, address, answer }
@@ -34,87 +36,104 @@ const Register = () => {
         toast.error(res.data.message);
         //console.log(res.data.message);
       }
+      setLoading(false);
     } catch (error) {
       //console.log(error);
+      setLoading(false);
       toast.error("Something went wrong");
     }
   };
 
   return (
     <Layout title={"Register -Ecommerce App  "}>
-      <Box
-        sx={{
-          padding: "3.5rem",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          // height: "100vh",
-          // border:'1px solid black',
-          alignItems: "center",
-          justifyContent: "center",
-          // boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-          "& > :not(style)": { m: 1 },
-        }}
-      >
-        <h3>Register</h3>
-        <TextField
-          // helperText="Please enter your name"
-          id="name"
-          label="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <TextField
-          helperText=" "
-          id="email"
-          label="Email"
-          type={"email"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <TextField
-          helperText=" "
-          id="password"
-          label="Password"
-          type={"password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <TextField
-          helperText=" "
-          id="adress"
-          label="Address"
-          type={"text"}
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          required
-        />
-        <TextField
-          helperText=" "
-          id="phone"
-          label="Phone"
-          type={"number"}
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          required
-        />
-        <TextField
-          helperText=" "
-          id="answer"
-          label="Answer"
-          type={"text"}
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          placeholder="What is your answer"
-          required
-        />
-        <button className="btn register_submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </Box>
+      {!loading ? (
+        <Box
+          sx={{
+            padding: "3.5rem",
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            // height: "100vh",
+            // border:'1px solid black',
+            alignItems: "center",
+            justifyContent: "center",
+            // boxShadow:' rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+            "& > :not(style)": { m: 1 },
+          }}
+        >
+          <h3>Register</h3>
+          <TextField
+            // helperText="Please enter your name"
+            id="name"
+            label="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <TextField
+            helperText=" "
+            id="email"
+            label="Email"
+            type={"email"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <TextField
+            helperText=" "
+            id="password"
+            label="Password"
+            type={"password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <TextField
+            helperText=" "
+            id="adress"
+            label="Address"
+            type={"text"}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+          <TextField
+            helperText=" "
+            id="phone"
+            label="Phone"
+            type={"number"}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+          <TextField
+            helperText=" "
+            id="answer"
+            label="Answer"
+            type={"text"}
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            placeholder="What is your answer"
+            required
+          />
+          <button className="btn register_submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        </Box>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100vw",
+            height: "100vh",
+            marginTop: "auto",
+          }}
+        >
+          <Loader />
+        </div>
+      )}
     </Layout>
   );
 };
