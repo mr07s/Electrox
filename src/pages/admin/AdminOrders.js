@@ -17,16 +17,13 @@ const AdminOrders = () => {
   const [auth, setAuth] = useAuth();
 
   const getAllOrders = async () => {
-    try 
-    {
+    try {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/auth/all-orders`
       );
       setOrders(data);
-
-    }
-    catch (error) {
-      console.log(error);
+    } catch (error) {
+      //console.log(error);
     }
   };
 
@@ -34,25 +31,20 @@ const AdminOrders = () => {
     if (auth?.token) getAllOrders();
   }, [auth?.token]);
 
-// onchange={(value)=>handleChangeStatus(o._id,value)}
+  // onchange={(value)=>handleChangeStatus(o._id,value)}
 
-const handleChangeStatus = async(orderId,value)=>{
-
-try {
-    console.log(orderId)
-    const {data} =await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`,{status:value})
-getAllOrders();
-
-
-} 
-catch (error) {
-    console.log(error)
-}
-
-
-
-}
-
+  const handleChangeStatus = async (orderId, value) => {
+    try {
+      //console.log(orderId)
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`,
+        { status: value }
+      );
+      getAllOrders();
+    } catch (error) {
+      //console.log(error)
+    }
+  };
 
   return (
     <Layout>
@@ -63,9 +55,15 @@ catch (error) {
         <h1>AllOrders</h1>
         <div
           className="order_table_container "
-          style={{  width: "100vw" ,display:'flex',justifyContent:'center'}}
+          style={{ width: "100vw", display: "flex", justifyContent: "center" }}
         >
-          <OrderTable order={orders} status={status} changeStatus={changeStatus} setChangeStatus={setChangeStatus} handleChangeStatus={handleChangeStatus}/>
+          <OrderTable
+            order={orders}
+            status={status}
+            changeStatus={changeStatus}
+            setChangeStatus={setChangeStatus}
+            handleChangeStatus={handleChangeStatus}
+          />
         </div>
       </div>
     </Layout>

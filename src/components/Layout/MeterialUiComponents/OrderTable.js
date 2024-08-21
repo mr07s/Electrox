@@ -23,8 +23,8 @@ export default function OrderTable(props) {
   // const handleUpdateSubmit = async (e) => {
   //   e.preventDefault();
   //   try {
-  //     // console.log(e)
-  //     console.log(selected._id);
+  //     // //console.log(e)
+  //     //console.log(selected._id);
   //     const { data } = await axios.put(
   //       `${process.env.REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
   //       { name: updatedname }
@@ -35,7 +35,7 @@ export default function OrderTable(props) {
   //       setUpdatedname("");
   //     }
   //   } catch (error) {
-  //     console.log(error);
+  //     //console.log(error);
   //     // toast.error(error);
   //   }
   // };
@@ -57,7 +57,7 @@ export default function OrderTable(props) {
               <TableCell>Quantity</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody >
+          <TableBody>
             {props.order?.map((o, i) => (
               <>
                 <TableRow
@@ -67,20 +67,16 @@ export default function OrderTable(props) {
                   <TableCell key={i}>{i + 1}</TableCell>
 
                   <TableCell key={i}>
-                  <Select
+                    <Select
                       bordered={false}
-                      onChange={
-                        (value)=>props.handleChangeStatus(o._id,value)
+                      onChange={(value) =>
+                        props.handleChangeStatus(o._id, value)
                       }
                       defaultValue={o?.status}
                     >
-                   {
-                   props.status?.map((s, i)=>(
-   <Option key={i} value={s}>
-                        
-                      </Option>
+                      {props.status?.map((s, i) => (
+                        <Option key={i} value={s}></Option>
                       ))}
-
                     </Select>
                   </TableCell>
 
@@ -97,8 +93,8 @@ export default function OrderTable(props) {
                   {/* 
                 buyer={o?.buyer?.name} date={moment(o?.createAt).fromNow()} payment={o?.payment?.success ? "Success" :"Failed"} products={o?.products?.length} */}
                 </TableRow>
-            
-                <div >
+
+                <div>
                   {o?.products?.map((p) => (
                     <div className="items">
                       <div className="image">
@@ -115,9 +111,7 @@ export default function OrderTable(props) {
                       </div>
                     </div>
                   ))}
-                  
                 </div>
-                
               </>
             ))}
           </TableBody>

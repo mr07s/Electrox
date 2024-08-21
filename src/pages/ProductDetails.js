@@ -9,7 +9,7 @@ const ProductDetails = () => {
   // getProduct
   const [product, setProduct] = useState({});
   const [relatedproduct, setRelatedproduct] = useState([]);
-  //   console.log(product);
+  //   //console.log(product);
 
   const getProduct = async () => {
     try {
@@ -17,13 +17,13 @@ const ProductDetails = () => {
         `${process.env.REACT_APP_API}/api/v1/products/get-product/${params.slug}`
       );
       setProduct(data?.singleProduct);
-      //   console.log(data?.singleProduct);
+      //   //console.log(data?.singleProduct);
       getSimilarProducts(
         data?.singleProduct._id,
         data?.singleProduct.category._id
       );
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -32,10 +32,10 @@ const ProductDetails = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/products/related-product/${pid}/${cid}`
       );
-      console.log({ data });
+      //console.log({ data });
       setRelatedproduct(data?.products);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

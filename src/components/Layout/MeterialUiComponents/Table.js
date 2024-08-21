@@ -21,8 +21,8 @@ export default function MuiTable(props) {
   // const handleUpdateSubmit = async (e) => {
   //   e.preventDefault();
   //   try {
-  //     // console.log(e)
-  //     console.log(selected._id);
+  //     // //console.log(e)
+  //     //console.log(selected._id);
   //     const { data } = await axios.put(
   //       `${process.env.REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
   //       { name: updatedname }
@@ -33,7 +33,7 @@ export default function MuiTable(props) {
   //       setUpdatedname("");
   //     }
   //   } catch (error) {
-  //     console.log(error);
+  //     //console.log(error);
   //     // toast.error(error);
   //   }
   // };
@@ -84,7 +84,14 @@ export default function MuiTable(props) {
                 </TableCell>
                 <TableCell>
                   {" "}
-                  <button className="table_btn btn_cart" onClick={()=>{props.handledelete(c._id)}}>Delete</button>
+                  <button
+                    className="table_btn btn_cart"
+                    onClick={() => {
+                      props.handledelete(c._id);
+                    }}
+                  >
+                    Delete
+                  </button>
                 </TableCell>
               </TableRow>
             ))}

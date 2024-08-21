@@ -6,7 +6,7 @@ import axios from "axios";
 import MuiTable from "../../components/Layout/MeterialUiComponents/Table";
 import TextFields from "../../components/Layout/MeterialUiComponents/TextField";
 import Modal from "../../components/Layout/MeterialUiComponents/Modal";
-import './CreateCategory.css'
+import "./CreateCategory.css";
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
@@ -24,7 +24,7 @@ const CreateCategory = () => {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong in geeting category");
     }
   };
@@ -45,7 +45,7 @@ const CreateCategory = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       // toast.error("somthing went wrong in input form");
     }
   };
@@ -53,8 +53,8 @@ const CreateCategory = () => {
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     try {
-      // console.log(e)
-      console.log(selected._id);
+      // //console.log(e)
+      //console.log(selected._id);
       const { data } = await axios.put(
         `${process.env.REACT_APP_API}/api/v1/category/update-category/${selected._id}`,
         { name: updatedname }
@@ -66,26 +66,24 @@ const CreateCategory = () => {
         getAllCategory();
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error(error);
     }
   };
   // Delete Category
   const handleDelete = async (id) => {
- 
     try {
-      // console.log(e)
-     
+      // //console.log(e)
+
       const { data } = await axios.delete(
         `${process.env.REACT_APP_API}/api/v1/category/delete-category/${id}`
       );
       if (data.success) {
-     
-       toast.success(`${name} deleted Successfully`)
+        toast.success(`${name} deleted Successfully`);
         getAllCategory();
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error(error);
     }
   };
@@ -119,7 +117,7 @@ const CreateCategory = () => {
               action1={"Action"}
               categories={categories}
               setSelected={setSelected}
-              handledelete ={handleDelete}
+              handledelete={handleDelete}
               modal={
                 <Modal
                   Name={"Update"}

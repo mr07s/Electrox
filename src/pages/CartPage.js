@@ -5,7 +5,7 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
-import './cssFile/cart.css'
+import "./cssFile/cart.css";
 import { toast } from "react-hot-toast";
 const CartPage = () => {
   const [cart, setCart] = useCart();
@@ -15,8 +15,7 @@ const CartPage = () => {
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
 
-
-  console.log(cart)
+  //console.log(cart)
   const removeCartItem = async (pid) => {
     try {
       let myCart = [...cart];
@@ -25,7 +24,7 @@ const CartPage = () => {
       setCart(myCart);
       localStorage.setItem("cart", JSON.stringify(myCart));
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -35,9 +34,9 @@ const CartPage = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/products/braintree/token`
       );
-      console.log(data);
+      //console.log(data);
       setClientToken(data?.clientToken);
-      console.log(clientToken);
+      //console.log(clientToken);
     } catch (error) {}
   };
 
@@ -56,7 +55,7 @@ const CartPage = () => {
         currency: "USD",
       });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -85,18 +84,17 @@ const CartPage = () => {
 
   return (
     <Layout>
-
-        <div className="cart_heading">
-          <h1>{`Hello ${auth?.token && auth?.user?.name}`}</h1>
-          <h4>
-            {cart?.length >= 1
-              ? `You have ${cart.length} items in your cart ${
-                  auth?.token ? "" : "Please Login to check out"
-                }`
-              : "Your Cart Is Empty"}
-          </h4>
-        </div>
-        <div className="containers">
+      <div className="cart_heading">
+        <h1>{`Hello ${auth?.token && auth?.user?.name}`}</h1>
+        <h4>
+          {cart?.length >= 1
+            ? `You have ${cart.length} items in your cart ${
+                auth?.token ? "" : "Please Login to check out"
+              }`
+            : "Your Cart Is Empty"}
+        </h4>
+      </div>
+      <div className="containers">
         <div className="cart_item">
           {cart?.map((p) => (
             <div className="items">
@@ -122,14 +120,16 @@ const CartPage = () => {
           ))}
         </div>
         <div className="check_out">
-          <h4 className="cart_summary cart_text" >Cart Summary</h4>
-          <p >Total checkout payment</p>
+          <h4 className="cart_summary cart_text">Cart Summary</h4>
+          <p>Total checkout payment</p>
           <hr />
           <h3 className="cart_total cart_text">Total:{totalPrice()}</h3>
           {auth?.user?.address ? (
             <>
               <h4 className="cart_text cart_address">CurrentAdress:</h4>
-              <h5 className="cart_text cart_addres_text">{auth?.user?.address}</h5>
+              <h5 className="cart_text cart_addres_text">
+                {auth?.user?.address}
+              </h5>
               <button
                 className="btn btn_updateadress btn_cart"
                 onClick={() => navigate("/dashboard/user/profile")}
@@ -140,8 +140,9 @@ const CartPage = () => {
           ) : (
             <div>
               {auth?.token ? (
-                <button onClick={() => navigate("/dashboard/user/profile")}
-                className="btn_cart"
+                <button
+                  onClick={() => navigate("/dashboard/user/profile")}
+                  className="btn_cart"
                 >
                   UpdateAddress
                 </button>
@@ -152,8 +153,7 @@ const CartPage = () => {
                       state: "/cart",
                     })
                   }
-                className="btn_cart"
-
+                  className="btn_cart"
                 >
                   Please login to checkout
                 </button>

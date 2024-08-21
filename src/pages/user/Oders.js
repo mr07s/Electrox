@@ -18,12 +18,12 @@ const Oders = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/auth/orders`
       );
-      console.log({ data });
+      //console.log({ data });
       setOrders(data);
-      console.log("data");
-      console.log({ orders });
+      //console.log("data");
+      //console.log({ orders });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -31,8 +31,8 @@ const Oders = () => {
     if (auth?.token) getOrders();
   }, [auth?.token]);
 
-  console.log(orders);
-  console.log("orders");
+  //console.log(orders);
+  //console.log("orders");
 
   return (
     <Layout title={"All Oders"}>

@@ -8,43 +8,34 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context/cart";
 import { toast } from "react-hot-toast";
-import './Card.css'
-
-
-
-
-
-
-
-
-
+import "./Card.css";
 
 export default function MuiCard(props) {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
-  console.log(cart);
+  //console.log(cart);
 
   // const product_name =props.product_name;
 
   return (
     <Card
-    id='main_card'
-    sx={{
-      maxWidth: 355,
-      // border: "1px solid black",
-      display: "flex",
-      flexDirection: "column",
-      margin:'1.2rem',
-      minWidth:300,
-      marginRight:'2rem',
-      height:'55vh',
-      maxHeight:'70vh',
-      boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',
-      borderRadius:'15px',
-      ':hover': {
-        boxShadow: 20, // theme.shadows[20]
-      },
-    }}
+      id="main_card"
+      sx={{
+        maxWidth: 355,
+        // border: "1px solid black",
+        display: "flex",
+        flexDirection: "column",
+        margin: "1.2rem",
+        minWidth: 300,
+        marginRight: "2rem",
+        height: "55vh",
+        maxHeight: "70vh",
+        boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
+        borderRadius: "15px",
+        ":hover": {
+          boxShadow: 20, // theme.shadows[20]
+        },
+      }}
     >
       <CardMedia
         component="img"
@@ -52,8 +43,8 @@ export default function MuiCard(props) {
         height="140"
         image={`${process.env.REACT_APP_API}/api/v1/products/product-photo/${props.product_id}`}
         sx={{
-          minHeight:'50%',
-          maxHeight:'50%',
+          minHeight: "50%",
+          maxHeight: "50%",
         }}
       />
       <CardContent>
@@ -67,7 +58,7 @@ export default function MuiCard(props) {
           {props.products_description.substring(0, 60)}
         </Typography>
       </CardContent>
-      <CardActions    sx={{marginBottom:'1.2rem'}}>
+      <CardActions sx={{ marginBottom: "1.2rem" }}>
         <Button
           size="small"
           onClick={() => {

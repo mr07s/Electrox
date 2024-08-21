@@ -29,13 +29,13 @@ const Register = () => {
       if (res.data.success) {
         toast.success("Registered successfully");
         navigate("/login");
-        console.log("success");
+        //console.log("success");
       } else {
         toast.error(res.data.message);
-        console.log(res.data.message);
+        //console.log(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong");
     }
   };

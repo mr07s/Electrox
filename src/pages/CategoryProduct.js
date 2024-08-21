@@ -10,7 +10,7 @@ const CategoryProduct = () => {
   const [category, setCategory] = useState([]);
 
   const auth = useAuth();
-  console.log(auth[0].user?.role);
+  //console.log(auth[0].user?.role);
   const params = useParams();
 
   const getProductByCat = async () => {
@@ -22,7 +22,7 @@ const CategoryProduct = () => {
       setCategory(data?.category);
       setProducts(data?.products);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   useEffect(() => {
